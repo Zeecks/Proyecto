@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:ui="http://java.sun.com/jsf/facelets"
+ xmlns:h="http://java.sun.com/jsf/html"
+ xmlns:f="http://java.sun.com/jsf/core"
+ xmlns:p="http://primefaces.org/ui">
+ 
+<h:head>
+  <meta name="generator" content="PSPad editor, www.pspad.com" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Inicio</title>
+     <style>
+     *{
+     font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif; 
+     text-align:center;
+     }
+     #cabecera{
+       width: 100%;
+    height: 50%;
+      float: left; 
+   background-image: url("img/3d-cubes-colorful-colors.jpg");
+     }
+     #label1{
+       width: 50%;
+       float:left;
+       background-color: #fff;
+     }
+     #label2{
+        width: 50%;
+       float:right;
+  background-color: #f2f2f2;
+     }
+  
+     #metodo1{
+       width: 50%;
+       float:left;
+       background-color:#f2f2f2;
+     }
+     #metodo2{
+        width: 50%;
+       float:right;
+      background-color:#f2f2f2;
+     }
+   #label3{
+        width: 100%;
+       float:right;
+    background-color:#e6e6e6;
+     }
+  #ataque1{
+       width: 50%;
+       float:left;
+        background-color:black;
+     }
+     #ataque2{
+        width: 50%;
+       float:right;
+       background-color:black;
+     }
+  .button0{
+  color: black;
+  background-color: #e6e6e6;/*cOLOR*/
+  font-size: 20px;
+  margin-top:50px;
+  margin-bottom: 50px;
+  border: 1px solid black;
+  text-align: center;
+  width: 650px;
+  height: 40px;
+  }
+  .button1{
+  color: #fff;
+  background-color: black;/*cOLOR*/
+  font-size: 20px;
+  margin-top:20px;
+  margin-bottom: 20px;
+  border: 1px solid #e6e6e6;
+  text-align: center;
+  width: 300px;
+  height: 50px;
+  }
+  #titulo{
+   background-color:#e6e6e6;
+   margin-top: 50px;
+   margin-bottom: 50px;
+  }
+  #img{
+  float:left;
+  width:50%;
+  margin-top:15px;
+  }
+  #opciones{
+  float:right;
+  text-align: left;
+  margin-top: 50px;
+  width:50%;
+  }
+  
+  @media(max-width: 410px){
+     #label1{
+       width: 410px;
+    float: left;
+     }
+     #label2{
+       width: 410px;
+    float: left;
+     }
+  
+     #metodo1{
+        width: 410px;
+  float: left;
+     }
+     #metodo2{
+       width: 410px;
+    float: left;
+     }
+  #ataque1{
+       width: 410px;
+    float: left;
+     }
+     #ataque2{
+        width: 410px;
+    float: left;
+     }
+  }
+     </style>
+ 
+ </h:head> 
+ <h:form>
+  <div id="cabecera">
+             <p style="font-size: 50px; margin-top:250px; margin-bottom:0px; background-color: #e6e6e6;">Welcome</p>    
+            </div>
+   
+            <div id="label">
+               <div id="label1">
+      <div id="img">
+     <img src="img/api.jpg" width="40%" /> 
+      </div>
+      <div id="opciones">
+        <label for="li" >Please select a JAX-RS library</label> <br/>
+      <h:selectOneMenu id="librerias" required="true" requiredMessage="                Please choose one library !" value="#{selectOneMenuView.librerias}" style="width:140px" onchange="submit()"> 
+                <f:selectItem itemLabel="Select one" noSelectionOption="true" />
+                <f:selectItem itemLabel="Jersey" itemValue="Jersey" />
+                <f:selectItem itemLabel="Restlet" itemValue="Restlet" />
+                <f:selectItem itemLabel="RestEasy" itemValue="RestEasy" />
+                <f:selectItem itemLabel="ApacheCXF" itemValue="ApacheCXF" />
+            </h:selectOneMenu>
+            
+            <h:message for="librerias" errorStyle="color:red"/>
+               </div>
+      </div>
+                <div id="label2">
+     
+                    <p>Please select one HTTP Method</p>
+                  <div id="metodo1">
+                     <h:selectOneRadio required="true" class="button0" value="#{selectOneMenuView.metodos}" >
+        <f:selectItem itemValue="g" itemLabel="GET" />
+        <f:selectItem itemValue="p" itemLabel="POST" />
+                     </h:selectOneRadio>
+                   </div>
+                </div>
+            </div>
+            <div id="label3">
+              <p>Please select an attack</p>        
+                  <div id="ataque1">
+     <h:commandButton  value="Excessive Authentication" class="button1" style="background-color:#2eb82e;" action="#{selectOneMenuView.consultar}"/>
+                  </div>
+                  <div id="ataque2">
+                    <h:commandButton  value="External Entity Attack XXE" class="button1" style="background-color:#ffad33;" action="#{selectOneMenuView.consultar2}"/>
+                  </div>
+            </div>
+    </h:form>
+</html>
